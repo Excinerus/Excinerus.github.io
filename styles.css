@@ -393,15 +393,7 @@ section {
   border-radius: 4px;
 }
 
- #BGPic {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: fit-content;
-  height: 100%;
-  object-fit: cover;
-  z-index: -2; 
-}  
+
 #BGVid
 {
   position: absolute;
