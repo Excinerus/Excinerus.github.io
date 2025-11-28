@@ -3,7 +3,10 @@
   box-sizing: border-box;
 }
 
-body,
+body {
+  background-color: #041F38;
+}
+
 html {
   margin: 0;
   padding: 0;
@@ -25,7 +28,7 @@ nav {
   right: 0;
   height: 50px;
   background: #020A16;
- 
+
   justify-content: center;
   display: flex;
   align-items: center;
@@ -86,7 +89,7 @@ section {
   gap: 15px;
   background: #041F38;
   width: 95vw;
-  max-width: 110vh; 
+  max-width: 110vh;
   max-height: 100vh;
   margin: 0 auto;
   border-radius: 8px;
@@ -132,9 +135,9 @@ section {
 
 /* Articles pane with vertical scroll and full width */
 .articles {
-  overflow-x:hidden;
-  overflow-y:auto;
-  display: flex; 
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: flex;
   height: 100%;
   width: 100%;
 }
@@ -146,7 +149,7 @@ section {
   align-items: center;
   justify-items: center;
   width: 100%;
-  height: 100%;  
+  height: 100%;
 }
 
 .article.active {
@@ -155,21 +158,21 @@ section {
 
 .article model-viewer {
   width: 100%;
-  height: 100%; 
+  height: 100%;
 }
 
 
 /* 2. Modal/Foreground Element Styling */
-.modal { 
-  position:absolute;
-  z-index: 1000; 
+.modal {
+  position: absolute;
+  z-index: 1000;
   left: 0;
   top: 0;
   width: 100vw;
-  height: 100vh; 
-  display: none; 
+  height: 100vh;
+  display: none;
   justify-self: center;
-  align-items: center; 
+  align-items: center;
   border-radius: 10px;
   border-color: #000;
 
@@ -177,10 +180,10 @@ section {
 
 .modal-content {
   position: relative;
-  width: 100%; 
-  height: 75%; 
-  max-height: 100vw;   
-      background: radial-gradient(ellipse at center,
+  width: 100%;
+  height: 75%;
+  max-height: 100vw;
+  background: radial-gradient(ellipse at center,
 
       rgba(0, 0, 0, 0.6) 0%,
 
@@ -193,7 +196,7 @@ section {
 #glbViewer {
   position: relative;
   width: 100%;
-  height: 100%; 
+  height: 100%;
 }
 
 
@@ -247,7 +250,7 @@ section {
   width: 80%;
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
-  
+
 }
 
 .article p {
@@ -271,12 +274,12 @@ section {
          This ensures maximum use of the container width.
     */
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  
+
   /* Ensures no padding on the container itself */
   padding: 0;
-  width: 100%; 
-  
-  max-width:100%;
+  width: 100%;
+
+  max-width: 100%;
   margin: 0 auto;
 }
 
@@ -317,23 +320,23 @@ section {
 }
 
 .glbGallery {
-  display:flex;
-  grid-template-columns: repeat(horizontal, minmax(10vh, 1fr)); 
+  display: flex;
+  grid-template-columns: repeat(horizontal, minmax(10vh, 1fr));
   margin-top: 5vh;
   margin-bottom: 5vh;
-  width: 100%; 
-  max-width:100%;
+  width: 100%;
+  max-width: 100%;
   justify-content: center;
   justify-items: center;
-  margin: 0; 
+  margin: 0;
 }
 
 .imgGc {
- 
+
   position: relative;
-  padding-top:0; 
+  padding-top: 0;
   overflow: hidden;
-  box-sizing: border-box; 
+  box-sizing: border-box;
   display: flex;
   justify-content: left;
   align-items: left;
@@ -344,7 +347,7 @@ section {
 
 /* If you are using actual <img> tags inside, ensure they fill the square */
 .glbthumbnail {
-  cursor: pointer;  
+  cursor: pointer;
   max-height: 10vh;
   max-width: 10vh;
   transition: transform 0.02s;
