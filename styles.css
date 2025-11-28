@@ -1,0 +1,406 @@
+/* Basic resets */
+* {
+  box-sizing: border-box;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  overflow-y: scroll;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Fixed top nav bar */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background: #020A16;
+ 
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 0 20px;
+  z-index: 1000;
+}
+
+nav a {
+  color: #f0f0f0;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Sections container with offset for fixed nav */
+section {
+  padding: 60px 20px 40px 20px;
+  min-height: 100vh;
+}
+
+/* First section: top */
+#top {
+  /* background: #f8fafc;*/
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: radial-gradient(ellipse at center,
+
+      rgba(0, 0, 0, 0.4) 0%,
+
+      transparent 100%);
+}
+
+#top h1 {
+  color: #f0f0f0;
+  font-size: 4rem;
+  margin-bottom: 20px;
+}
+
+#top p {
+  font-size: 1.25rem;
+  color: #f0f0f0;
+  max-width: 600px;
+}
+
+/* Portfolio section stacked */
+/* Portfolio section stacked, center content */
+#portfolio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  background: #041F38;
+  width: 95vw;
+  max-width: 110vh; 
+  max-height: 100vh;
+  margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+/* Thumbnails horizontal scroll bar */
+.thumbnails {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+  width: 100%;
+  min-height: fit-content;
+}
+
+.thumbnails::-webkit-scrollbar {
+  height: 8px;
+}
+
+.thumbnails::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 4px;
+}
+
+.thumbnails img {
+  width: 100px;
+  align-items: center;
+  height: 100px;
+  object-fit: cover;
+  border: 2px solid transparent;
+  cursor: pointer;
+  flex-shrink: 0;
+  border-radius: 4px;
+  transition: border-color 0.3s ease;
+}
+
+.thumbnails img.active {
+  border-color: #0078D7;
+}
+
+/* Articles pane with vertical scroll and full width */
+.articles {
+  overflow-x:hidden;
+  overflow-y:auto;
+  display: flex; 
+  height: 100%;
+  width: 100%;
+}
+
+.article {
+  display: none;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  width: 100%;
+  height: 100%;  
+}
+
+.article.active {
+  display: block;
+}
+
+.article model-viewer {
+  width: 100%;
+  height: 100%; 
+}
+
+
+/* 2. Modal/Foreground Element Styling */
+.modal { 
+  position:absolute;
+  z-index: 1000; 
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh; 
+  display: none; 
+  justify-self: center;
+  align-items: center; 
+  border-radius: 10px;
+  border-color: #000;
+
+}
+
+.modal-content {
+  position: relative;
+  width: 100%; 
+  height: 75%; 
+  max-height: 100vw;   
+      background: radial-gradient(ellipse at center,
+
+      rgba(0, 0, 0, 0.6) 0%,
+
+      rgba(0, 0, 0, 0.2) 100%);
+
+
+}
+
+/* 3. Viewer Styling */
+#glbViewer {
+  position: relative;
+  width: 100%;
+  height: 100%; 
+}
+
+
+
+.article .yt-embed {
+  position: relative;
+  justify-self: center;
+  width: 100%;
+  height: 720px;
+  max-width: 1280px;
+  max-height: 720px;
+  display: block;
+}
+
+.article .li-embed {
+  position: relative;
+  justify-self: center;
+  width: 100%;
+  max-width: 900px;
+  height: 100cqh;
+  max-height: 900px;
+  display: block;
+}
+
+.a-img {
+  width: 100%;
+}
+
+.article close-button {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  color: #fff;
+  font-size: 36px;
+  font-weight: bold;
+  cursor: pointer;
+  text-shadow: 0 0 5px #000;
+  z-index: 1001;
+  /* Above the viewer */
+}
+
+.article close-button:hover,
+.article close-button:focus {
+  color: #f44336;
+  text-decoration: none;
+}
+
+.article h2 {
+  color: #f0f0f0;
+  font-size: 2rem;
+  width: 80%;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  
+}
+
+.article p {
+  color: #f0f0f0;
+  width: 80%;
+  font-size: 1.5rem;
+  text-align: center;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.imgGallery {
+  display: grid;
+
+  /* This is the core of the responsive grid logic:
+    
+    1. repeat(auto-fit, ...):  Tells the grid to create as many columns as will fit.
+    2. minmax(150px, 1fr):  
+       - 150px: The **minimum width** a imgGallerythumb is allowed to be. Adjust this value
+         to your desired minimum dimension (e.g., 200px, 100px).
+       - 1fr:  Allows the columns to expand to fill the available space evenly. 
+         This ensures maximum use of the container width.
+    */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  
+  /* Ensures no padding on the container itself */
+  padding: 0;
+  width: 100%; 
+  
+  max-width:100%;
+  margin: 0 auto;
+}
+
+/* --- imgGallerythumb Styling --- */
+.imgGallerythumb {
+  /* The Aspect Ratio Hack for Square imgGallerythumbs:
+    1. padding-top: 100% makes the height equal to the width (a square).
+    2. position: relative is needed to place the content (like the image) inside 
+       the padded area. 
+    */
+  position: relative;
+  padding-top: 100%;
+  /* Creates a perfect square (Height = Width) */
+  overflow: hidden;
+
+  /* Placeholder styles for visualization */
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  /* Includes the border in the element's total width/height */
+
+  /* Placeholder for content (e.g., text label or actual image) */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5em;
+}
+
+/* If you are using actual <img> tags inside, ensure they fill the square */
+.imgGallerythumb img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Ensures the image covers the square area without stretching */
+}
+
+.glbGallery {
+  display:flex;
+  grid-template-columns: repeat(horizontal, minmax(10vh, 1fr)); 
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  width: 100%; 
+  max-width:100%;
+  justify-content: center;
+  justify-items: center;
+  margin: 0; 
+}
+
+.imgGc {
+ 
+  position: relative;
+  padding-top:0; 
+  overflow: hidden;
+  box-sizing: border-box; 
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  font-size: 1.5em;
+  max-width: 20vh;
+  max-height: 20vh;
+}
+
+/* If you are using actual <img> tags inside, ensure they fill the square */
+.glbthumbnail {
+  cursor: pointer;  
+  max-height: 10vh;
+  max-width: 10vh;
+  transition: transform 0.02s;
+  /* Ensures the image covers the square area without stretching */
+}
+
+
+.glbthumbnail:hover {
+  transform: scale(2);
+  z-index: 1000;
+}
+
+/* Contact section */
+#contact {
+
+  height: 200px;
+  background: #020A16;
+  color: #eee;
+  text-align: center;
+}
+
+#contact .social-links {
+  margin-bottom: 20px;
+}
+
+#contact .social-links a {
+  margin: 0 10px;
+  display: inline-block;
+  color: #eee;
+  font-size: 1.5rem;
+}
+
+#contact footer {
+  font-size: 0.9rem;
+  color: #888;
+}
+
+/* Scrollbar styling for panes (optional) */
+.thumbnails::-webkit-scrollbar,
+.articles::-webkit-scrollbar {
+  width: 8px;
+}
+
+.thumbnails::-webkit-scrollbar-thumb,
+.articles::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 4px;
+}
+
+video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  /* Place behind other content */
+}

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" referrerpolicy="referrer" />
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+<title>Simple One Page Website</title> 
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<nav>
+  <a href="#top">Top</a>
+  <a href="#portfolio">Portfolio</a>
+  <!-- <a href="#contact">Contact</a> -->
+</nav>
+<video autoplay loop muted>
+  <source src="Articles/CubeGame/Video.webm" type="video/webm">
+  Your browser does not support the video tag.
+</video>
+<section id="top">
+  <h1>Excinerus Dev</h1>
+  <p>Under construction</p>
+   <p><a href="#portfolio">Check my Portfolio below</a> </p>
+</section>
+
+<section id="portfolio">
+  <div class="thumbnails" tabindex="0" aria-label="Portfolio Thumbnails">
+    <img src="Articles/Replicator/MWF-000326.webp" alt="Replicator" data-article="1" class="active">
+    <img src="Articles/SkyrimCaco/molotovicon.webp" alt="CACO" data-article="2">
+    <img src="pic.jpg" alt="Article 3" data-article="3">
+    <img src="pic.jpg" alt="Article 4" data-article="4">
+    <img src="pic.jpg" alt="Article 5" data-article="5">
+  </div>
+  <div class="articles" tabindex="0" aria-label="Portfolio Articles">
+    <article class="article active" data-article="1">
+      <h2>Replicator, a Unity procedural skinning kit</h2>
+      <p>This is an in-editor tool set to produce prefabs with modular parts, procedural skins, attachment nodes with metadata and export them to GLB for once a too ambitious VR project</p>
+    
+    
+        <div class="glbGallery">
+	   <img class="glbthumbnail" src="Articles/Replicator/aku-000014.webp" alt="Skinned AK thumbnail" width="512" height="512">
+       <img class="glbthumbnail" src="Articles/Replicator/exc-000011.webp" alt="Skinned AK thumbnail" width="512" height="512">
+       <img class="glbthumbnail" src="Articles/Replicator/exc-000017.webp" alt="Skinned AK thumbnail" width="512" height="512">
+       <img class="glbthumbnail" src="Articles/Replicator/MWF-000192.webp" alt="Skinned AK thumbnail" width="512" height="512">
+       <img class="glbthumbnail" src="Articles/Replicator/MWF-000308.webp" alt="Skinned AK thumbnail" width="512" height="512">
+       <img class="glbthumbnail" src="Articles/Replicator/MWF-000326.webp" alt="Skinned AK thumbnail" width="512" height="512">
+       <img class="glbthumbnail" src="Articles/Replicator/MWF-000365.webp" alt="Skinned AK thumbnail" width="512" height="512">
+       <img class="glbthumbnail" src="Articles/Replicator/MWF-000390.webp" alt="Skinned AK thumbnail" width="512" height="512">
+       <img class="glbthumbnail" src="Articles/Replicator/sn-000017.webp" alt="Skinned boot thumbnail" width="512" height="512">
+    </div>
+    <div id="viewerModal" class="modal">
+        <div class="modal-content"> 
+
+            <model-viewer
+                id="sharedModelViewer"
+                src="Articles/Replicator/MWF-000326_Low.glb" 
+                shadow-intensity="1"
+                camera-controls
+                touch-action="pan"
+                auto-rotate
+                exposure="1.5"
+            ></model-viewer>
+        </div>
+    </div>
+        <p>This came with an extensive prefab configurator for modular models, parts could be tagged and assigned metadata for later procedural assembly</p> 
+        <iframe class="yt-embed"  src="https://www.youtube.com/embed/_FqBI_F7eRc?si=wBBrq5NLrjIcF1-H" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+        <p>A skinner Utility allowed creating masks for the modular parts, for procedural texture mapping</p> 
+        <iframe  class="li-embed"    src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7261464350844981248"    frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+
+        <p>A decal placement tool</p> 
+        <iframe class="yt-embed" src="https://www.youtube.com/embed/WXxCpdV3Iik?si=FnqhdP_DtjYIYlgN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+        <p>Serial numbers too</p> 
+        <iframe class="li-embed"  src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7261459966635483136"   frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+
+        
+
+ 
+
+
+
+    <script> 
+        const glbthumbnails = document.querySelectorAll('.glbthumbnail');
+        const modal = document.getElementById('viewerModal'); 
+const modelViewer = document.getElementById('sharedModelViewer');
+        glbthumbnails.forEach(thumbnail => {
+            thumbnail.addEventListener('click', function() {
+            const imagePath = this.src;
+            const glbPath = imagePath.replace('.webp', '.glb');
+                console.log("click"+ glbPath);
+            modelViewer.setAttribute('src', glbPath);
+            modal.style.display = 'flex';
+        });
+    }); 
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+ 
+    </article>
+
+
+    <article class="article" data-article="2">
+      <h2>Some rustic Alchemical Bombs for CACO</h2>
+      <div class="a-img"><img  src="Articles/SkyrimCaco/Alchemical-Grenades.jpg"></div>
+      <br>
+        <div class="imgGallery">
+            <div class="imgGallerythumb"><img src="Articles/SkyrimCaco/models/pheasant.webp"           ></div>
+            <div class="imgGallerythumb"><img src="Articles/SkyrimCaco/models/Tbottle.webp"            ></div>
+            <div class="imgGallerythumb"><img src="Articles/SkyrimCaco/models/TCloth.webp"             ></div>
+            <div class="imgGallerythumb"><img src="Articles/SkyrimCaco/models/TClothOily.webp"         ></div>
+            <div class="imgGallerythumb"><img src="Articles/SkyrimCaco/models/TdwemerFrost.webp"       ></div>
+            <div class="imgGallerythumb"><img src="Articles/SkyrimCaco/models/TdwemerSalts.webp"       ></div>
+            <div class="imgGallerythumb"><img src="Articles/SkyrimCaco/models/TdwemerWires.webp"       ></div>
+            <div class="imgGallerythumb"><img src="Articles/SkyrimCaco/models/TIronPipe.webp"          ></div>
+            <div class="imgGallerythumb"><img src="Articles/SkyrimCaco/models/Tleather.webp"           ></div>
+            <div class="imgGallerythumb"><img src="Articles/SkyrimCaco/models/TleatherBlack.webp"      ></div>
+            <div class="imgGallerythumb"><img src="Articles/SkyrimCaco/models/TleatherCrystals.webp"   ></div>
+            <div class="imgGallerythumb"><img src="Articles/SkyrimCaco/models/TleatherFrost.webp"      ></div>
+            <div class="imgGallerythumb"><img src="Articles/SkyrimCaco/models/TleatherShrapnel.webp"   ></div>
+            <div class="imgGallerythumb"><img src="Articles/SkyrimCaco/models/TLeatherShrapnelBig.webp"></div>
+        </div>
+    </article>
+    <article class="article" data-article="3">
+      <h2>A Physics based Character Controller </h2>
+    </article>
+    <article class="article" data-article="4">
+      <h2>Gnarly Weapon Models for Mannimarco</h2>
+    </article>
+    <article class="article" data-article="5">
+      <h2>Mobile Layout App for Modular Houses</h2>
+    </article>
+  </div>
+</section>
+
+<!-- <section id="contact">
+  <div class="social-links" aria-label="Social Media Links">
+    <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter">&#x1F426;</a>
+    <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook">&#x1F464;</a>
+    <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn">&#x1F465;</a>
+  </div>
+  <footer>
+
+    &copy; 2025 Excinerus. All rights reserved.
+  </footer>
+</section> -->
+
+<script>
+// Portfolio thumbnails click to show corresponding article
+const thumbnails = document.querySelectorAll('.thumbnails img');
+const articles = document.querySelectorAll('.article');
+
+function activateArticle(id) {
+  thumbnails.forEach(img => img.classList.toggle('active', img.dataset.article === id));
+  articles.forEach(article => article.classList.toggle('active', article.dataset.article === id));
+}
+
+// Add click event listeners
+thumbnails.forEach(img => {
+  img.addEventListener('click', () => {
+    activateArticle(img.dataset.article);
+  });
+});
+</script>
+
+</body>
+</html>
